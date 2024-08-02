@@ -1,10 +1,9 @@
 import os.path
 
-from selene import browser, have, be
-
+from selene import browser, have
 
 def test_demoga_forms():
-    browser.open('/')
+    browser.open('/automation-practice-form')
     browser.element('#firstName').type('Sergei')
     browser.element('#lastName').type('Gorobets')
     browser.element('#userEmail').type('sergei.gorobets.vit@gmail.com')
