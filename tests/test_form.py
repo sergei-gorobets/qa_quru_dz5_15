@@ -1,14 +1,17 @@
 import os.path
 
-from selene import browser, have
+from selene import browser, have, command
 
-def test_demoga_forms():
+
+def test_demoga_form():
     browser.open('/automation-practice-form')
+    browser.element('#fixedban').perform(command.js.remove)
+    browser.element('footer').perform(command.js.remove)
     browser.element('#firstName').type('Sergei')
     browser.element('#lastName').type('Gorobets')
     browser.element('#userEmail').type('sergei.gorobets.vit@gmail.com')
     browser.element('[for="gender-radio-1"]').click()
-    browser.element('#userNumber').type('79854910266')
+    browser.element('#userNumber').type('7985491026')
     browser.element('#dateOfBirthInput').click()
     browser.element('.react-datepicker__month-select option[value="9"]').click()
     browser.element('.react-datepicker__year-select option[value="1996"]').click()
